@@ -6,12 +6,7 @@ namespace MoodAnalyzeProblemTest
     [TestClass]
     public class UnitTest1
     {
-        private readonly MoodAnalyzer moodAnalyzer;
 
-        public UnitTest1()
-        {
-            moodAnalyzer = new MoodAnalyzer();
-        }
         /// <summary>
         /// Analyzes the Mood and, It returns Sad
         /// </summary>
@@ -22,8 +17,9 @@ namespace MoodAnalyzeProblemTest
             /// Arrange
             string message = "I am in sad Mood";
 
-            /// Act    
-            string result = moodAnalyzer.AnalyzeMood(message);
+            /// Act    string
+            MoodAnalyzer moodAnalyzer = new MoodAnalyzer(message);
+            string result = moodAnalyzer.AnalyzeMood();
 
             /// Assert
             Assert.AreEqual("sad", result);
@@ -34,10 +30,11 @@ namespace MoodAnalyzeProblemTest
         public void AnalyzeMood_ReturnHappy()
         {
             /// Arrange
-            string message = "I am in sad Mood";
+            string message = "I am in happy Mood";
 
-            /// Act    
-            string result = moodAnalyzer.AnalyzeMood(message);
+            /// Act   
+            MoodAnalyzer moodAnalyzer = new MoodAnalyzer(message);
+            string result = moodAnalyzer.AnalyzeMood();
 
             /// Assert
             Assert.AreEqual("happy", result);

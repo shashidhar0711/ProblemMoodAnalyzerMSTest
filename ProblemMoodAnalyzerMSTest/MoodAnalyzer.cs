@@ -34,15 +34,15 @@ namespace ProblemMoodAnalyzerMSTest
         /// </summary>
         /// <param name="message">The message.</param>
         /// <returns></returns>
-        public string AnalyzeMood(string message)
+        public string AnalyzeMood()
         {
             if (message.Contains("sad"))
             {
-                return "SAD";
+                return "sad";
             }
             else
             {
-                return "HAPPY";
+                return "happy";
             }
         }
     }
