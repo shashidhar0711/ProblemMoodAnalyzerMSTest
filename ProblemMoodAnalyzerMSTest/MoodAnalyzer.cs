@@ -6,10 +6,13 @@ namespace ProblemMoodAnalyzerMSTest
 {
     public class MoodAnalyzer
     {
+        /// <summary>
+        /// Instance Variable
+        /// </summary>
         private string message;
-
         public MoodAnalyzer()
         {
+
         }
 
         /// <summary>
@@ -20,6 +23,7 @@ namespace ProblemMoodAnalyzerMSTest
         {
             this.message = message;
         }
+
         /// <summary>
         /// Defines the entry point of the application.
         /// </summary>

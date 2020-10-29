@@ -6,6 +6,11 @@ namespace MoodAnalyzeProblemTest
     [TestClass]
     public class UnitTest1
     {
+        private static string message;
+
+        /// Creating Reference of Object Class
+        /// It is invoking during Object Creation.
+        MoodAnalyzer moodAnalyzer = new MoodAnalyzer(message);
 
         /// <summary>
         /// Analyzes the Mood and, It returns Sad
@@ -17,8 +22,7 @@ namespace MoodAnalyzeProblemTest
             /// Arrange
             string message = "I am in sad Mood";
 
-            /// Act    string
-            MoodAnalyzer moodAnalyzer = new MoodAnalyzer(message);
+            /// Act
             string result = moodAnalyzer.AnalyzeMood();
 
             /// Assert
@@ -27,13 +31,16 @@ namespace MoodAnalyzeProblemTest
 
         [TestMethod]
 
+        /// <summary>
+        /// Analyzes the Mood and, It returns Happy
+        /// </summary>
+        /// <returns></returns>
         public void AnalyzeMood_ReturnHappy()
         {
             /// Arrange
             string message = "I am in happy Mood";
 
             /// Act   
-            MoodAnalyzer moodAnalyzer = new MoodAnalyzer(message);
             string result = moodAnalyzer.AnalyzeMood();
 
             /// Assert
