@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ProblemMoodAnalyzerMSTest
+namespace ProblemMoodAnalyzerMS
 {
     public class MoodAnalyzer
     {
+        /// <summary>
+        /// Instance Variable
+        /// </summary>
         private string message;
-
         public MoodAnalyzer()
         {
+
         }
 
         /// <summary>
@@ -20,14 +23,6 @@ namespace ProblemMoodAnalyzerMSTest
         {
             this.message = message;
         }
-        /// <summary>
-        /// Defines the entry point of the application.
-        /// </summary>
-        /// <param name="args">The arguments.</param>
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
-        }
 
         /// <summary>
         /// Analyzes the mood.
@@ -36,14 +31,28 @@ namespace ProblemMoodAnalyzerMSTest
         /// <returns></returns>
         public string AnalyzeMood(string message)
         {
-            if (message.Contains("sad"))
+            try
             {
-                return "SAD";
+                if (this.message.Equals(string.Empty))
+                {
+                    /// Throws Mood should not be empty
+                    throw new AnalyzeMoodCustomizedException(AnalyzeMoodCustomizedException.ExceptionType.EMPTY_MESSAGE, "Mood should not be empty");
+                }
+                if (this.message.Contains("sad"))
+                {
+                    return "sad";
+                }
+                else
+                {
+                    return "happy";
+                }
             }
-            else
+            catch (NullReferenceException)
             {
-                return "HAPPY";
+                /// Throws Mood should not be null
+                throw new AnalyzeMoodCustomizedException(AnalyzeMoodCustomizedException.ExceptionType.EMPTY_NULL, "Mood should not be null");
             }
+
         }
     }
 }
